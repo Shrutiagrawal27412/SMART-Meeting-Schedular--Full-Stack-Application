@@ -62,10 +62,9 @@ spring.datasource.password=YOUR_PASSWORD
 
 # Run the application
 ./mvnw spring-boot:run
-🌐 Frontend (React)
-bash
-Copy
-Edit
+
+### 🌐 Frontend (React)
+
 # Navigate to frontend directory
 cd frontend
 
@@ -77,9 +76,13 @@ npm start
 🔄 API Endpoints (Sample)
 Method	Endpoint	Description
 GET	/api/meetings	Get all meetings
+
 POST	/api/meetings	Create a new meeting
+
 DELETE	/api/meetings/{id}	Cancel a meeting
+
 POST	/api/auth/signup	Register new user
+
 POST	/api/auth/login	Authenticate user
 
 ✨ Future Enhancements
