@@ -1,0 +1,610 @@
+/* Add this to your existing CSS or create a separate register.css file
+
+/* Card Styles for Register */
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: slideIn 0.6s ease-out;
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: var(--white);
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Form Select Styles */
+.form-select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-select:disabled {
+  background: var(--gray-50);
+  cursor: not-allowed;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Enhanced Form Group for Register */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Grid Layout for Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Input with Icon Styles */
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-left: 3rem;
+}
+
+.input-with-icon .icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 1.25rem;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.strength-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Error States */
+.form-input.error {
+  border-color: var(--error);
+}
+
+.form-input.error:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Help Text */
+.help-text {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+
+/* Divider */
+.divider {
+  border-top: 1px solid var(--gray-200);
+  margin: 1.5rem 0;
+}
+
+/* Link Styles */
+.link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--primary-hover);
+}
+
+/* Success States */
+.form-input.success {
+  border-color: var(--success);
+}
+
+.form-input.success:focus {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Form Validation */
+.validation-message {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.validation-message.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.validation-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.validation-message.warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  .card-header {
+    padding: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+} */
+
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scroll for background animations */
+}
+
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Background animation for the entire page */
+    background: linear-gradient(135deg, #e0f2f7, #c1e7f0, #e0f2f7);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Register Card Styling */
+.register-card {
+    background-color: #ffffff;
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 600px; /* Max-width suitable for a single-column form */
+    width: 100%;
+    animation: fadeInScale 0.8s ease-out forwards;
+    padding: 30px 40px; /* Increased padding for better spacing */
+    box-sizing: border-box;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Card Header */
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Form Layout */
+.card-body form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Gap between columns */
+    margin-bottom: 20px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px; /* Spacing between form groups */
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px; /* Rounded input fields */
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-input::placeholder,
+.form-select::placeholder {
+    color: #bbb;
+}
+
+.form-input:focus,
+.form-select:focus {
+    border-color: #3fa14f; /* Green border on focus */
+    box-shadow: 0 0 0 3px rgba(63, 161, 79, 0.2); /* Soft green glow */
+    outline: none;
+}
+
+/* Input with Icon Styling */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon .form-input {
+    padding-left: 45px; /* Space for the icon */
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #888;
+    font-size: 1.1rem;
+    z-index: 2; /* Ensure icon is above input */
+}
+
+/* Password input specific styling */
+.password-input-wrapper .form-input {
+    padding-right: 45px; /* Space for the toggle button */
+}
+
+.password-toggle-button {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #888;
+    transition: color 0.2s ease;
+    z-index: 2; /* Ensure button is above input */
+}
+
+.password-toggle-button:hover {
+    color: #3fa14f;
+}
+
+/* Password Strength Indicator */
+.password-strength-indicator {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-progress {
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+}
+
+.strength-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 50px; /* Prevent text jumping */
+    text-align: right;
+}
+
+/* Error and Hint Text */
+.error-message {
+    color: #ef4444; /* Tailwind red-500 */
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.hint-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Button Styling */
+.btn.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #3fa14f, #6fd381); /* Green gradient button */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(63, 161, 79, 0.3); /* Soft shadow */
+    margin-top: 20px; /* Space above the button */
+}
+
+.btn.btn-primary:hover {
+    background: linear-gradient(90deg, #2e8b3a, #5cb86b); /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 8px 20px rgba(63, 161, 79, 0.4);
+}
+
+.btn.btn-primary:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Spinner for loading state */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Register Footer Links */
+.register-footer-links {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.login-prompt {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.sign-in-link {
+    color: #3fa14f; /* Green link */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.sign-in-link:hover {
+    color: #2e8b3a;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .register-card {
+        padding: 25px 30px;
+        margin: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 0; /* Remove gap when stacked */
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+    }
+
+    .form-input,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .input-with-icon .form-input {
+        padding-left: 40px;
+    }
+
+    .input-icon {
+        left: 12px;
+        font-size: 1rem;
+    }
+
+    .password-toggle-button {
+        right: 12px;
+        font-size: 1rem;
+    }
+
+    .btn.btn-primary {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .login-prompt,
+    .hint-text,
+    .error-message {
+        font-size: 0.85rem;
+    }
+}

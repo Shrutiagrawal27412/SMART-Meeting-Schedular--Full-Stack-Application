@@ -1,0 +1,556 @@
+/* 
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent scroll for background animations */
+}
+
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Background animation for the entire page */
+    background: linear-gradient(135deg, #e0f2f7, #c1e7f0, #e0f2f7);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Login Card Styling */
+.login-card {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px; /* Increased max-width */
+    width: 100%;
+    min-height: 600px; /* Minimum height for consistent layout */
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Left Section - Organic Green Panel */
+.login-left-section {
+    position: relative;
+    flex: 1;
+    background: linear-gradient(180deg, #6fd381, #3fa14f); /* Softer green gradient */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    overflow: hidden;
+    border-radius: 20px 0 0 20px; /* Rounded only on the left */
+}
+
+/* Organic Shapes for background animation */
+.organic-shape-1, .organic-shape-2, .organic-shape-3 {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.7;
+}
+
+.organic-shape-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+    animation: moveShape1 15s infinite alternate ease-in-out;
+}
+
+.organic-shape-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    animation: moveShape2 18s infinite alternate ease-in-out;
+}
+
+.organic-shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 20%;
+    animation: moveShape3 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveShape1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+@keyframes moveShape2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50px, -50px); }
+}
+
+@keyframes moveShape3 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, -30px); }
+}
+
+
+.left-nav-area {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    gap: 25px; /* Increased gap */
+    z-index: 10;
+}
+
+.nav-link-item {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link-item:hover {
+    color: #ffffff;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.vertical-text {
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 700;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    letter-spacing: 5px;
+    opacity: 0.9;
+    z-index: 5;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.showcase-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+
+.showcase-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
+}
+
+/* Right Section - Login Form */
+.login-right-section {
+    flex: 1.5; /* Slightly larger right section */
+    padding: 40px 50px; /* Increased padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 0 20px 20px 0; /* Rounded only on the right */
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background-color: #3fa14f; /* Green color for logo icon */
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.tagline {
+    font-size: 0.85rem;
+    color: #777;
+    margin-left: 15px;
+}
+
+.login-tag {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3fa14f; /* Green color for login tag */
+    letter-spacing: 1px;
+}
+
+.login-form-container h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    animation: slideInRight 0.7s ease-out forwards;
+}
+
+.login-form-container h2 span {
+    color: #3fa14f; /* Green for "Back!" */
+}
+
+.login-form-container p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px; /* Adjust padding for icon */
+    border: 1px solid #e0e0e0;
+    border-radius: 10px; /* Rounded input fields */
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.form-input::placeholder {
+    color: #bbb;
+}
+
+.form-input:focus {
+    border-color: #3fa14f; /* Green border on focus */
+    box-shadow: 0 0 0 3px rgba(63, 161, 79, 0.2); /* Soft green glow */
+    outline: none;
+}
+
+.password-toggle-button {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #888;
+    transition: color 0.2s ease;
+}
+
+.password-toggle-button:hover {
+    color: #3fa14f;
+}
+
+/* Login Options (Remember Me & Forgot Password) */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #666;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #3fa14f; /* Green checkbox */
+}
+
+.forgot-password-link {
+    color: #3fa14f; /* Green link */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+    color: #2e8b3a; /* Darker green on hover */
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #3fa14f, #6fd381); /* Green gradient button */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(63, 161, 79, 0.3); /* Soft shadow */
+}
+
+.login-btn:hover {
+    background: linear-gradient(90deg, #2e8b3a, #5cb86b); /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 8px 20px rgba(63, 161, 79, 0.4);
+}
+
+.login-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Spinner for loading state */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Register Link and Footer Text */
+.register-link-container {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #666;
+}
+
+.register-link-container a {
+    color: #3fa14f; /* Green link */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.register-link-container a:hover {
+    color: #2e8b3a;
+    text-decoration: underline;
+}
+
+.login-footer-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.login-footer-text a {
+    color: #3fa14f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.login-footer-text a:hover {
+    color: #2e8b3a;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        border-radius: 20px;
+        max-width: 500px; /* Adjust max-width for smaller screens */
+    }
+
+    .login-left-section {
+        border-radius: 20px 20px 0 0; /* Rounded top corners */
+        height: 250px; /* Fixed height for left section on mobile */
+        padding: 30px 20px;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-nav-area {
+        position: static; /* Remove absolute positioning */
+        margin-bottom: 20px;
+        gap: 15px;
+    }
+
+    .vertical-text {
+        writing-mode: horizontal-tb;
+        text-orientation: unset;
+        transform: none;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .showcase-button {
+        position: static;
+    }
+
+    .login-right-section {
+        border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+        padding: 30px;
+    }
+
+    .login-tag {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        margin: 10px;
+    }
+
+    .login-right-section {
+        padding: 20px;
+    }
+
+    .brand-header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .tagline {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .login-form-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-form-container p {
+        font-size: 0.9rem;
+    }
+
+    .form-input {
+        padding: 10px 15px 10px 40px;
+        font-size: 0.9rem;
+    }
+
+    .input-icon {
+        left: 10px;
+        font-size: 1rem;
+    }
+
+    .password-toggle-button {
+        right: 10px;
+        font-size: 1rem;
+    }
+
+    .login-btn {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .register-link-container,
+    .login-footer-text {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,601 @@
+/* Variables for consistent colors and sizing */
+:root {
+    --primary-accent: #00a884; /* Calm teal-green */
+    --primary-light: #4cd9b1; /* Lighter teal for hover/accents */
+    --dark-background: #004d40; 
+    --card-bg: #ffffff;
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #888;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for dark background */
+    --error-color: #ef4444; /* Red for errors */
+    --warning-color: #f59e0b; /* Orange for warnings */
+    --success-color: #10b981; /* Green for success/strong */
+
+    --border-radius-lg: 60px;
+    --border-radius-md: 30px;
+    --padding-card-desktop: 50px;
+    --padding-card-mobile: 30px;
+}
+
+/* General Body and Container Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures it takes full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling for the body */
+    /* UPDATED: Animated gradient background */
+    background: linear-gradient(135deg, var(--dark-background) 0%, #0a6c5e 25%, #00a884 50%, #0a6c5e 75%, var(--dark-background) 100%);
+    background-size: 400% 400%; /* Larger size for smoother animation */
+    animation: gradientBackground 20s ease infinite; /* Slower, smoother animation */
+    color: var(--text-dark); /* Default text color */
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.auth-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Full viewport width */
+    min-height: 50vh; /* Ensures it's at least full viewport height */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Removed background here as it's now on the body */
+}
+
+/* Authentication Card Styling (Login & Register) */
+.auth-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 15px 40px var(--shadow-color);
+    overflow: hidden;
+    max-width: 1100px;
+    width: 100%;
+    padding: var(--padding-card-desktop);
+    box-sizing: border-box;
+    position: relative;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+.animate-entry {
+    animation: fadeInScale 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-logo {
+    animation: floatEffect 3s ease-in-out infinite;
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+.slide-in {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.focus-effect:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 168, 132, 0.2);
+}
+
+.animate-lock {
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.98) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes floatEffect {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* Internal Header (Logo and Tagline, now inside the card) */
+.auth-internal-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.auth-internal-header .card-title { /* For Register page */
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+    /* Added animation for the title */
+    animation: slideInUp 0.7s ease-out forwards; /* Using existing animation */
+    animation-delay: 0.1s; /* Slight delay */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px; /* Space between logo and tagline */
+}
+
+.logo-icon {
+    background-color: var(--primary-accent);
+    color: var(--card-bg);
+    width: 45px;
+    height: 45px;
+    border-radius: 12px; /* Slightly rounded square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 168, 132, 0.3); /* Accent color shadow */
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    margin-top: 5px;
+}
+
+/* Welcome Text for Login */
+.auth-form-content h2.welcome-text {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-align: center;
+    animation: slideInUp 0.7s ease-out forwards;
+}
+
+.welcome-text .highlight {
+    color: var(--primary-accent);
+}
+
+.instruction-text {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 25px; /* Increased spacing */
+    position: relative;
+    /* Optional: Highlight on focus, add/remove `focused` class via JS on input focus/blur */
+    transition: background-color 0.3s ease;
+}
+
+.form-group.focused {
+    background-color: rgba(0, 168, 132, 0.03); /* Very subtle highlight */
+    border-radius: var(--border-radius-md);
+    padding: 5px 10px; /* Add padding for the highlight to be visible */
+    margin: -5px -10px 20px; /* Adjust margin to compensate for padding */
+}
+
+
+.form-label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 14px 18px; /* More generous padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+}
+
+.form-input::placeholder,
+.form-select::placeholder {
+    color: var(--text-light);
+}
+
+.form-input:focus,
+.form-select:focus {
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(0, 168, 132, 0.2); /* Accent color glow */
+    outline: none;
+}
+
+/* Input with Icon Styling */
+.input-wrapper .input-icon {
+    position: absolute;
+    left: 15px;
+    color: var(--text-light); /* Using text-light for icon color */
+    font-size: 1.2rem;
+    pointer-events: none; /* Icon does not interfere with input */
+}
+
+.input-wrapper .form-input {
+    padding-left: 50px; /* Space for the icon */
+}
+
+/* Password Toggle Button */
+.password-input-wrapper .form-input {
+    padding-right: 50px; /* Space for the toggle button */
+}
+
+.password-toggle-button {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    transition: color 0.2s ease;
+}
+
+.password-toggle-button:hover {
+    color: var(--primary-accent);
+}
+
+/* Form Options (Remember Me & Forgot Password) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    color: var(--text-medium);
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--primary-accent); /* Accent color checkbox */
+    transform: scale(1.1); /* Slightly larger checkbox */
+}
+
+.link-text {
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-text:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+/* Primary Button Styling */
+.primary-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(90deg, var(--primary-accent), var(--primary-light));
+    color: var(--card-bg);
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(0, 168, 132, 0.35); /* Soft accent shadow */
+    letter-spacing: 0.5px;
+}
+
+.primary-btn:hover {
+    background: linear-gradient(90deg, #009677, #3bb8a0); /* Slightly darker on hover */
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0, 168, 132, 0.45);
+}
+
+.primary-btn:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Auth Footer Links (Register prompt, terms/privacy) */
+.auth-footer-links {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border-color);
+}
+
+.prompt-text {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    margin-bottom: 10px;
+}
+
+.terms-privacy-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* Specifics for Register Page */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px; /* Consistent with other form groups */
+}
+
+/* Password Strength Indicator */
+.password-strength-indicator {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 7px; /* Slightly thicker bar */
+    background-color: var(--border-color);
+    border-radius: 3.5px;
+    overflow: hidden;
+}
+
+.strength-progress {
+    height: 100%;
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+    border-radius: 3.5px;
+    /* Colors will be set by JS via inline style for now,
+       but you could add classes like .strength-progress.weak { background-color: var(--error-color); }
+       and then dynamically add those classes with JS */
+}
+
+.strength-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 50px;
+    text-align: right;
+    transition: color 0.4s ease-in-out; /* Smooth color transition for text */
+     /* Colors will be set by JS via inline style for now,
+       but you could add classes like .strength-text.weak { color: var(--error-color); }
+       and then dynamically add those classes with JS */
+}
+
+/* Error and Hint Text */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    text-align: left;
+    animation: fadeIn 0.4s ease-out; /* Animation for error messages */
+}
+
+.hint-text {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-card {
+        padding: var(--padding-card-mobile);
+        max-width: 400px;
+        margin: 15px 0; /* Adjust margin for smaller screens */
+    }
+
+    .auth-internal-header {
+        margin-bottom: 25px;
+    }
+
+    .logo-text {
+        font-size: 1.6rem;
+    }
+
+    .auth-form-content h2.welcome-text {
+        font-size: 2rem;
+    }
+
+    .instruction-text {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-input,
+    .form-select {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .input-wrapper .form-input {
+        padding-left: 45px;
+    }
+
+    .input-wrapper .input-icon {
+        left: 12px;
+        font-size: 1.1rem;
+    }
+
+    .password-input-wrapper .form-input {
+        padding-right: 45px;
+    }
+
+    .password-toggle-button {
+        right: 12px;
+        font-size: 1.1rem;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .primary-btn {
+        padding: 14px;
+        font-size: 1.05rem;
+    }
+
+    .auth-footer-links {
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+
+    .prompt-text,
+    .terms-privacy-text {
+        font-size: 0.85rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* Stack columns for register form */
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-page-container {
+        padding: 15px;
+    }
+    .auth-card {
+        padding: 25px;
+    }
+    .logo-text {
+        font-size: 1.4rem;
+    }
+    .auth-form-content h2.welcome-text {
+        font-size: 1.8rem;
+    }
+    .primary-btn {
+        font-size: 1rem;
+    }
+}
