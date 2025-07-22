@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# 📅 Meeting Scheduler Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack Meeting Scheduler application built using **React**, **Spring Boot**, and **MySQL**. It allows users to schedule meetings, avoid conflicts, manage attendees, and streamline communication — ideal for teams and individuals.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🔐 User authentication (sign-up / login)
+- 🗓 Schedule new meetings with date, time, title, and participants
+- ⚠️ Prevents scheduling conflicts and overlapping meetings
+- 👥 Add attendees to meetings
+- 🗃 Stores meetings persistently in MySQL
+- 📜 View list of all upcoming meetings
+- ❌ Delete or cancel meetings
+- ✅ Clean, user-friendly interface using React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Tech Stack
 
-### `npm test`
+### 🔧 Frontend
+- **React** (18+)
+- **Axios** – API communication
+- **React Router** – Page navigation
+- **Bootstrap / Tailwind CSS** (Optional – for UI styling)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ⚙️ Backend
+- **Spring Boot** (Java)
+- **Spring Web** – RESTful APIs
+- **Spring Data JPA** – ORM
+- **Spring Security** – Authentication (if implemented)
+- **CORS Configurations** for frontend-backend communication
 
-### `npm run build`
+### 🗄️ Database
+- **MySQL**
+- Tables for `Users`, `Meetings`, `Participants`
+- Supports foreign keys and validation constraints
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔧 Installation & Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 💻 Prerequisites
+- Java 17+
+- MySQL 8+
+- Node.js 18+
+- Maven or Gradle
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ▶️ Backend (Spring Boot)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Navigate to backend directory
+cd backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Configure database in application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/meetings
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
 
-## Learn More
+# Run the application
+./mvnw spring-boot:run
+🌐 Frontend (React)
+bash
+Copy
+Edit
+# Navigate to frontend directory
+cd frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Install dependencies
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Run the React app
+npm start
+🔄 API Endpoints (Sample)
+Method	Endpoint	Description
+GET	/api/meetings	Get all meetings
+POST	/api/meetings	Create a new meeting
+DELETE	/api/meetings/{id}	Cancel a meeting
+POST	/api/auth/signup	Register new user
+POST	/api/auth/login	Authenticate user
 
-### Code Splitting
+✨ Future Enhancements
+Email reminders to participants
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Calendar integration (Google / Outlook)
 
-### Analyzing the Bundle Size
+Role-based access (Admin / User)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Real-time updates via WebSockets
 
-### Making a Progressive Web App
+Developed with ❤️ by Shruti Agrawal
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
