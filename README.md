@@ -73,19 +73,8 @@ npm install
 
 # Run the React app
 npm start
-🔄 API Endpoints (Sample)
-Method	Endpoint	Description
-GET	/api/meetings	Get all meetings
 
-POST	/api/meetings	Create a new meeting
-
-DELETE	/api/meetings/{id}	Cancel a meeting
-
-POST	/api/auth/signup	Register new user
-
-POST	/api/auth/login	Authenticate user
-
-✨ Future Enhancements
+## ✨ Future Enhancements
 Email reminders to participants
 
 Calendar integration (Google / Outlook)
